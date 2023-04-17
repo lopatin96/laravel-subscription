@@ -8,7 +8,6 @@ trait HasSubscription
 {
     public function getSubscribedPlan(): int|null
     {
-        return 0;
         if ($this->subscribed()) {
             foreach (config('spark.billables.user.plans') as $idx => $plan) {
                 if (
