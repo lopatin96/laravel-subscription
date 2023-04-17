@@ -1,12 +1,7 @@
 <?php
 
 return [
-    'subscriptions' => [
-        0 => [
-            'name' => 'Pro',
-            'products' => [
-
-            ]
-        ]
+    'TestKey' => [
+        0 => 'TestKeyPro',
     ]
 ];
