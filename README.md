@@ -12,6 +12,16 @@ class User extends Authenticatable
 ```
 
 # Publishing
+### Localization
+```php
+php artisan vendor:publish --tag="laravel-subscription-lang"
+```
+
+### Views
+```php
+php artisan vendor:publish --tag="laravel-subscription-views"
+```
+
 ### Config
 ```php
 php artisan vendor:publish --tag="laravel-subscription-config"
