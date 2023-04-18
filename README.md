@@ -12,7 +12,7 @@ class User extends Authenticatable
 ```
 
 ### Views
-Add subscription card to *resource/views/profile/show.blade.php*
+Add subscription card view to *resource/views/profile/show.blade.php*
 
 ```html
 @include('laravel-subscription::subscription.card')
