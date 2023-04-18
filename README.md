@@ -11,6 +11,13 @@ class User extends Authenticatable
     use HasSubscription, …
 ```
 
+### Views
+Add subscription card to *resource/views/profile/show.blade.php*
+
+```html
+@include('laravel-subscription::subscription.card')
+```
+
 # Publishing
 ### Localization
 ```php
