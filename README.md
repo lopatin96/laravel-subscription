@@ -25,6 +25,12 @@ and subscription info component to *resources/views/layouts/app.blade.php*:
     …
 ```
 
+### Config
+Publish config to manage limited version of config:
+```php
+php artisan vendor:publish --tag="laravel-subscription-config"
+```
+
 # Publishing
 ### Localization
 ```php
