@@ -27,6 +27,6 @@ class SubscriptionProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/../config/config.php' => config_path('laravel-subscription.php')
-        ], 'laravel-subscription');
+        ], 'laravel-subscription-config');
     }
 }
