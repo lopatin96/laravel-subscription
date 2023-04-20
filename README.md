@@ -18,6 +18,13 @@ Add subscription card view to *resource/views/profile/show.blade.php*
 @include('laravel-subscription::subscription.card')
 ```
 
+and subscription info component to *resources/views/layouts/app.blade.php*:
+```html
+<body class="font-sans antialiased">
+    @include('laravel-subscription::subscription.info')
+    …
+```
+
 # Publishing
 ### Localization
 ```php
