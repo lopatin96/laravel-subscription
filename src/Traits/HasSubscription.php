@@ -26,4 +26,9 @@ trait HasSubscription
 
         return null;
     }
+
+    public function isMaximumSubscribedPlan(): bool
+    {
+        return $this->getSubscribedPlan() === count(config('spark.billables.user.plans')) - 1;
+    }
 }
