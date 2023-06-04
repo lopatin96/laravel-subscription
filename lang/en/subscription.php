@@ -2,7 +2,7 @@
 
 return [
 
-    'trial_until' => 'Trial until :date! Don’t forget to <a href="/billing" class="font-semibold underline">choose a subscription plan</a>.',
+    'trial_until' => '{0} Today is the last day of your trial period. Don’t forget to <a href="/billing" class="font-semibold underline">choose a subscription plan</a>.|{1} You have :days day of trial period left. Don’t forget to <a href="/billing" class="font-semibold underline">choose a subscription plan</a>.|[2,*] You have :days days of trial period left. Don’t forget to <a href="/billing" class="font-semibold underline">choose a subscription plan</a>.',
     'trial_period_is_over' => 'The trial period is over. To continue using the service <a href="/billing" class="font-semibold underline">choose a subscription plan</a>.',
 
     'title' => 'Subscriptions and Billing',
