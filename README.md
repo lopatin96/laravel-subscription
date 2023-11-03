@@ -155,7 +155,7 @@ class Subscription extends Resource
 
 namespace App\Nova\Metrics;
 
-use App\Models\Subscription;
+use Atin\LaravelSubscription\Models\Subscription;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Partition;
 
