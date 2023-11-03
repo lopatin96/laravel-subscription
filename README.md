@@ -97,13 +97,13 @@ class Subscription extends Resource
                 ->failedWhen(['canceled', 'past_due'])
                 ->sortable(),
 
-            Number::make(__('Links'), function () {
-                return $this->user->links->count();
-            }),
-
-            Number::make(__('Clicks'), function () {
-                return $this->user->clicks->count();
-            }),
+//            Number::make(__('Links'), function () {
+//                return $this->user->links->count();
+//            }),
+//
+//            Number::make(__('Clicks'), function () {
+//                return $this->user->clicks->count();
+//            }),
 
             Stack::make('Created At', [
                 DateTime::make('Created At'),
