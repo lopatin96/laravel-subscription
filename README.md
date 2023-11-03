@@ -48,10 +48,11 @@ use Laravel\Nova\Fields\Stack;
 use Laravel\Nova\Fields\Status;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Marshmallow\Filters\DateRangeFilter;
+use Atin\LaravelSubscription\Models\Subscription as SubscriptionModel;
 
 class Subscription extends Resource
 {
-    public static string $model = \App\Models\Subscription::class;
+    public static string $model = SubscriptionModel::class;
 
     public static $title = 'stripe_id';
 
