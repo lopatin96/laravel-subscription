@@ -41,5 +41,3 @@
         </div>
     </x-slot>
 </x-action-section>
-
-<x-section-border />
