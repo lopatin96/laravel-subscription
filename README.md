@@ -105,6 +105,17 @@ class Subscription extends Resource
 //                return $this->user->clicks->count();
 //            }),
 
+            Stack::make('Ends At', [
+                DateTime::make('Ends At'),
+
+                Line::make(null, function () {
+                    return "({$this->ends_at->diffForHumans()})";
+                })
+                    ->asSmall(),
+            ])
+                ->sortable()
+                ->readonly(),
+                
             Stack::make('Created At', [
                 DateTime::make('Created At'),
 
