@@ -11,7 +11,7 @@ class Subscription extends Model
     use HasFactory;
 
     protected $casts = [
-        'trial_ends_at' => 'trial_ends_at',
+        'trial_ends_at' => 'datetime',
         'ends_at' => 'datetime',
     ];
 
