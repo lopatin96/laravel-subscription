@@ -105,11 +105,22 @@ class Subscription extends Resource
 //                return $this->user->clicks->count();
 //            }),
 
+            Stack::make('Trial ends At', [
+                DateTime::make('Trial ends At'),
+
+                Line::make(null, function () {
+                    return $this->trial_ends_at ? "({$this->trial_ends_at->diffForHumans()})" : null;
+                })
+                    ->asSmall(),
+            ])
+                ->sortable()
+                ->readonly(),
+
             Stack::make('Ends At', [
                 DateTime::make('Ends At'),
 
                 Line::make(null, function () {
-                    return "({$this->ends_at->diffForHumans()})";
+                    return $this->ends_at ? "({$this->ends_at->diffForHumans()})" : null;
                 })
                     ->asSmall(),
             ])
@@ -119,7 +130,7 @@ class Subscription extends Resource
             Stack::make('Created At', [
                 DateTime::make('Created At'),
 
-                Line::make('User', function () {
+                Line::make(null, function () {
                     return "({$this->created_at->diffForHumans()})";
                 })
                     ->asSmall(),
@@ -130,7 +141,7 @@ class Subscription extends Resource
             Stack::make('Updated At', [
                 DateTime::make('Created At'),
 
-                Line::make('User', function () {
+                Line::make(null, function () {
                     return "({$this->updated_at->diffForHumans()})";
                 })
                     ->asSmall(),
