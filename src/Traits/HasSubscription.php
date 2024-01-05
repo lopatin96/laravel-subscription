@@ -11,7 +11,8 @@ trait HasSubscription
         if ($this->subscribed()) {
             foreach (config('spark.billables.user.plans') as $idx => $plan) {
                 if (
-                    DB::table('subscriptions')->where('user_id', $this->id)
+                    DB::table('subscriptions')
+                        ->where('user_id', $this->id)
                         ->where('stripe_status', 'active')
                         ->whereIn('stripe_price', [
                             $plan['monthly_id'],
