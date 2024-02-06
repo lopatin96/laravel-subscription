@@ -50,7 +50,7 @@ For example, in ```spark/app.blade.php```:
 
     activity()
         ->causedBy(auth()->user())
-        ->log('Billing:visited');
+        ->log('billing:visited');
 @endphp
 ```
 
