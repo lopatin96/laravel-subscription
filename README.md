@@ -40,14 +40,16 @@ DateTime::make('Billing Visited At', 'billing_visited_at')
     ->readonly(),
 ```
 
-### Register billing_visited_at time
+### Register
 For example, in ```spark/app.blade.php```:
 ```php
-@php
-auth()->user()->update([
-    'billing_visited_at' => now(),
-]);
-@endphp
+    auth()->user()->update([
+        'billing_visited_at' => now(),
+    ]);
+    
+    activity()
+        ->causedBy(auth()->user())
+        ->log('Billing:visited');
 ```
 
 ### Views
