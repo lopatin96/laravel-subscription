@@ -1,14 +1,53 @@
 # Install
+
+### Migration
+Run migration
+```php
+php artisan migrate
+```
+
 ### Trait
-Add **HasSubscription** trait to User model
+Add  *fillable*, *casts* and **HasSubscription** trait to User model
 
 ```php
-
 use Atin\LaravelSubscription\Traits\HasSubscription;
 
 class User extends Authenticatable
 {
     use HasSubscription, …
+
+    protected $fillable = [
+        …
+        'billing_visited_at',
+    ];
+    
+    protected $casts = [
+        …
+        'billing_visited_at' => 'datetime',
+    ];
+```
+
+### Nova
+Fields
+```php
+Boolean::make('Billing', 'billing_visited_at')
+    ->onlyOnIndex()
+    ->sortable(),
+
+DateTime::make('Billing Visited At', 'billing_visited_at')
+    ->hideFromIndex()
+    ->nullable()
+    ->readonly(),
+```
+
+### Register billing_visited_at time
+For example, in ```spark/app.blade.php```:
+```php
+@php
+auth()->user()->update([
+    'billing_visited_at' => now(),
+]);
+@endphp
 ```
 
 ### Views
@@ -233,4 +272,9 @@ php artisan vendor:publish --tag="laravel-subscription-views"
 ### Config
 ```php
 php artisan vendor:publish --tag="laravel-subscription-config"
+```
+
+### Migrations
+```php
+php artisan vendor:publish --tag="laravel-subscription-migrations"
 ```
