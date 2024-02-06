@@ -2,6 +2,8 @@
 
 namespace Atin\LaravelSubscription\Traits;
 
+use Atin\LaravelSubscription\Models\Subscription;
+use Carbon\CarbonInterface;
 use Illuminate\Support\Facades\DB;
 
 trait HasSubscription
@@ -11,12 +13,9 @@ trait HasSubscription
         if ($this->subscribed()) {
             foreach (config('spark.billables.user.plans') as $idx => $plan) {
                 if (
-                    DB::table('subscriptions')->where('user_id', $this->id)
+                    Subscription::where('user_id', $this->id)
                         ->where('stripe_status', 'active')
-                        ->whereIn('stripe_price', [
-                            $plan['monthly_id'],
-                            $plan['yearly_id'],
-                        ])
+                        ->whereIn('stripe_price', [$plan['monthly_id'], $plan['yearly_id']])
                         ->first()
                 ) {
                     return $idx;
@@ -25,6 +24,13 @@ trait HasSubscription
         }
 
         return null;
+    }
+
+    public function getSubscribedAttribute(): bool
+    {
+        return Subscription::where('user_id', $this->id)
+            ->where('stripe_status', 'active')
+            ->exists();
     }
 
     public function isMaximumSubscribedPlan(): bool
