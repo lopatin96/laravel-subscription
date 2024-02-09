@@ -7,7 +7,7 @@ php artisan migrate
 ```
 
 ### Trait
-Add  *fillable*, *casts* and **HasSubscription** trait to User model
+Add  **fillable**, **casts** and **HasSubscription** trait to User model
 
 ```php
 use Atin\LaravelSubscription\Traits\HasSubscription;
