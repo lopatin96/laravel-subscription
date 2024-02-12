@@ -3,11 +3,20 @@
 namespace Atin\LaravelSubscription\Traits;
 
 use Atin\LaravelSubscription\Models\Subscription;
-use Carbon\CarbonInterface;
-use Illuminate\Support\Facades\DB;
 
 trait HasSubscription
 {
+    public function stripeSubscriptions(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Subscription::class);
+    }
+
+    public function stripeSubscription(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Subscription::class)
+            ->latest('id');
+    }
+
     public function getSubscribedPlan(): int|null
     {
         if ($this->subscribed()) {
