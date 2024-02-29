@@ -3,7 +3,7 @@
 return [
 
     'incomplete_or_pending' => 'Ваш платеж все еще обрабатывается. Это может занять некоторое время.',
-    'past_due' => 'Платеж не прошел. Попробуйте другой способ оплаты или повторите оплату позже.',
+    'past_due' => 'Не удалось осуществить оплату. <a href="/billing" class="font-semibold underline">Попробуйте другой способ оплаты</a> или повторите оплату позже.',
 
     'trial_until' => '{0} Сегодня последний день вашего пробного периода. Не забудьте <a href="/billing" class="font-semibold underline">выбрать тарифный план</a>.|{1} У вас остался :days день пробного периода. Не забудьте <a href="/billing" class="font-semibold underline">выбрать тарифный план</a>.|[2,*] У вас осталось :days дня пробного периода. Не забудьте <a href="/billing" class="font-semibold underline">выбрать тарифный план</a>.',
     'trial_period_is_over' => 'Пробный период закончился. Чтобы продолжить пользоваться сервисом, <a href="/billing" class="font-semibold underline">выберите тарифный план</a>.',
