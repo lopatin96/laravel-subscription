@@ -26,7 +26,7 @@ trait HasSubscription
 
     public function getSubscribedPlanIdx(): ?int
     {
-        return $this->getSubscribedPlanData()['idx'];
+        return $this->getSubscribedPlanData()['idx'] ?? null;
     }
 
     public function getSubscribedPlanName(): ?string
