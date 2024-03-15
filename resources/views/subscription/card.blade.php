@@ -14,7 +14,7 @@
                 {{ __('laravel-subscription::subscription.card-title') }}:
 
                 <span class="text-blue-500 uppercase font-bold">
-                    {{ __(config('spark.billables.user.plans.' . auth()->user()->getSubscribedPlan() . '.name')) }}
+                    {{ __(config('spark.billables.user.plans.' . auth()->user()->getSubscribedPlanIdx() . '.name')) }}
                 </span>
 
             @else

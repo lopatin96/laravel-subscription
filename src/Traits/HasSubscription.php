@@ -40,7 +40,7 @@ trait HasSubscription
 
         if ($stripeSubscription = $this->stripeSubscription) {
             if ($planData['monthly_price'] === $stripeSubscription->stripe_price) {
-                    return 'monthly';
+                return 'monthly';
             }
 
             if ($planData['yearly_incentive'] === $stripeSubscription->stripe_price) {
@@ -74,6 +74,6 @@ trait HasSubscription
 
     public function isMaximumSubscribedPlan(): bool
     {
-        return $this->getSubscribedPlan() === count(config('spark.billables.user.plans')) - 1;
+        return $this->getSubscribedPlanIdx() === count(config('spark.billables.user.plans')) - 1;
     }
 }
