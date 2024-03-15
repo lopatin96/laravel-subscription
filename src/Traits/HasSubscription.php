@@ -39,11 +39,11 @@ trait HasSubscription
         $planData = $this->getSubscribedPlanData();
 
         if ($stripeSubscription = $this->stripeSubscription) {
-            if ($planData['monthly_price'] === $stripeSubscription->stripe_price) {
+            if ($planData['monthly_id'] === $stripeSubscription->stripe_price) {
                 return 'monthly';
             }
 
-            if ($planData['yearly_incentive'] === $stripeSubscription->stripe_price) {
+            if ($planData['yearly_id'] === $stripeSubscription->stripe_price) {
                 return 'yearly';
             }
         }
