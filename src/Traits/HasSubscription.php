@@ -36,9 +36,10 @@ trait HasSubscription
 
     public function getSubscribedPlanPriceType(): ?string
     {
-        $planData = $this->getSubscribedPlanData();
-
-        if ($stripeSubscription = $this->stripeSubscription) {
+        if (
+            ($planData = $this->getSubscribedPlanData())
+            && ($stripeSubscription = $this->stripeSubscription)
+        ) {
             if ($planData['monthly_id'] === $stripeSubscription->stripe_price) {
                 return 'monthly';
             }
