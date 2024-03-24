@@ -1,4 +1,4 @@
-@if (in_array(auth()->user()?->stripeSubscription?->stripe_status, ['incomplete', 'pending'], true))
+@if(in_array(auth()->user()?->stripeSubscription?->stripe_status, ['incomplete', 'pending'], true))
     <div class="py-3 px-5 bg-yellow-100 text-yellow-700 text-sm border-b border-yellow-200 text-center">
         {!! __('laravel-subscription::subscription.incomplete_or_pending') !!}
     </div>

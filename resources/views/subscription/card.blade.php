@@ -10,7 +10,7 @@
     <x-slot name="content">
 
         <h3 class="text-lg font-medium text-gray-900">
-            @if (auth()->user()->subscribed())
+            @if(auth()->user()->subscribed())
                 {{ __('laravel-subscription::subscription.card-title') }}:
 
                 <span class="text-blue-500 uppercase font-bold">
@@ -31,7 +31,7 @@
         <div class="mt-5">
             <a href="/billing">
                 <x-button type="button" href="/billing">
-                    @if (auth()->user()->subscribed())
+                    @if(auth()->user()->subscribed())
                         {{ __('laravel-subscription::subscription.card-action-1') }}
                     @else
                         {{ __('laravel-subscription::subscription.card-action-2') }}
