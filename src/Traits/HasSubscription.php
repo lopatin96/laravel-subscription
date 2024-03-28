@@ -24,9 +24,9 @@ trait HasSubscription
         return $this->getSubscribedPlanData();
     }
 
-    public function getSubscribedPlanIdx(): ?int
+    public function getSubscribedPlanLevel(): ?int
     {
-        return $this->getSubscribedPlanData()['idx'] ?? null;
+        return $this->getSubscribedPlanData()['level'] ?? null;
     }
 
     public function getSubscribedPlanName(): ?string
@@ -55,9 +55,8 @@ trait HasSubscription
     private function getSubscribedPlanData(): ?array
     {
         if ($stripeSubscription = $this->stripeSubscription) {
-            foreach (config('spark.billables.user.plans') as $idx => $plan) {
+            foreach (config('spark.billables.user.plans') as $plan) {
                 if (in_array($stripeSubscription->stripe_price, [$plan['monthly_id'], $plan['yearly_id']], true)) {
-                    $plan['idx'] = $idx;
                     return $plan;
                 }
             }
@@ -75,6 +74,6 @@ trait HasSubscription
 
     public function isMaximumSubscribedPlan(): bool
     {
-        return $this->getSubscribedPlanIdx() === count(config('spark.billables.user.plans')) - 1;
+        return $this->getSubscribedPlanLevel() === config('spark.billables.user.levels') - 1;
     }
 }
