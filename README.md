@@ -55,13 +55,7 @@ For example, in ```spark/app.blade.php```:
 ```
 
 ### Views
-Add subscription card view to *resource/views/profile/show.blade.php*
-
-```html
-@include('laravel-subscription::subscription.card')
-```
-
-and subscription info component to *resources/views/layouts/app.blade.php*:
+Add subscription info component to *resources/views/layouts/app.blade.php*:
 ```html
 <body class="font-sans antialiased">
     @include('laravel-subscription::subscription.info')
