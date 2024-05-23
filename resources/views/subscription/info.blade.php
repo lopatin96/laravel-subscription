@@ -10,7 +10,7 @@
     <div class="py-3 px-5 bg-red-100 text-red-700 text-sm border-b border-red-200 text-center">
         {!! __('laravel-subscription::subscription.past_due') !!}
     </div>
-@elseif(! auth()->user()?->subscribed())
+@elseif(! auth()->user()?->onTrial() && ! auth()->user()?->subscribed())
     <div class="py-3 px-5 bg-red-100 text-red-700 text-sm border-b border-red-200 text-center">
         {!! __('laravel-subscription::subscription.trial_period_is_over') !!}
     </div>
