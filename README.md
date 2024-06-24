@@ -62,6 +62,18 @@ Add subscription info component to *resources/views/layouts/app.blade.php*:
     …
 ```
 
+### Console
+Add ```IncompleteSubscriptions``` to ```app/Console/Kernel.php```
+```php
+use Atin\LaravelSubscription\Console\IncompleteSubscriptions;
+
+class Kernel extends ConsoleKernel
+{
+    protected function schedule(Schedule $schedule): void
+    {
+        $schedule->call(new IncompleteSubscriptions)->hourly()->between('6:00', '24:00');
+```
+
 ### Config
 Publish config to manage limited version of config:
 ```php
